@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import os, sys
+import yaml
 
 PYFRIEND_INFO_VERSION = "1.0.0"
 PYFRIEND_CONFIG_DEBUG = True
@@ -19,12 +20,13 @@ def infoConsole(Type,Location,Msg):
   return
 def systemLoad():  
   pluginsPath = os.listdir( PYFRIEND_PATH_PLUGINS ) 
-  for pluginName in pluginsPath:
+  if pluginName in pluginsPath:
     pluginPath = f"{PYFRIEND_PATH_PLUGINS}//{pluginName}"
     if os.path.isdir(pluginPath):
       if os.path.exists(f"{pluginPath}//{pluginName}.plugin.yml"):
-        pluginConfig = open(f"{pluginPath}//{pluginName}.plugin.yml","r")   
-        print(pluginConfig.read())
+        pluginConfigFile = open(f"{pluginPath}//{pluginName}.plugin.yml","r")   
+        pluginConfig = yaml.load(pluginConfigFile.read())
+        PYFRIEND_CONFIG_PLUGINS[pluginName] = pluginConfig
       else:
         infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Unable to load properly.")
 if(__name__=="__main__"):
