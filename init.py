@@ -24,7 +24,7 @@ def systemLoad():
     if os.path.isdir(pluginPath):
       if not os.path.exists(f"{pluginPath}//{pluginName}.plugin.yml"):
         pluginConfig = open(f"{pluginPath}//{pluginName}.plugin.yml","r")   
-        print pluginConfig.read() 
+        print(pluginConfig.read())
       else:
         infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Unable to load properly.")
 if(__name__=="__main__"):
