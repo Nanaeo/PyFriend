@@ -1,5 +1,7 @@
 # PyFriends
 基于GithubAction的自动化友情链接管理
+# 特色
+暂无
 # 目录结构
 ```
 PyFriend
