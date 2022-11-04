@@ -22,7 +22,7 @@ def systemLoad():
   for pluginName in pluginsPath:
     pluginPath = f"{PYFRIEND_PATH_PLUGINS}//{pluginName}"
     if os.path.isdir(pluginPath):
-      if !os.path.exists(f"{pluginPath}//{pluginName}.plugin.yml") 
+      if not os.path.exists(f"{pluginPath}//{pluginName}.plugin.yml") 
         pluginConfig = open(f"{pluginPath}//{pluginName}.plugin.yml","r")   
         print pluginConfig.read() 
       else:
