@@ -1,4 +1,4 @@
-# PyFriend
+# PyFriends
 基于GithubAction的自动化友情链接管理
 # 目录结构
 ```
@@ -7,10 +7,10 @@ PyFriend
 │   core.py  
 │   plugin.py  
 │
-└───plugin
-│   │   LightHouseTest.py
-│   │   Test.py
-│   │   install.py
+└───plugins
+│   │   LightHouseTest
+│   │   Test
+│   │   install
 │   │   ...
 │   
 └───config
@@ -39,4 +39,10 @@ Github修改监听文件和github事件调用Action,Action启动时加载Plugin,
 </details>
 
 # 计划
+- [ ] 插件系统
+
+- [ ] 插件系统
+
+- [ ] 插件系统
+
 - [ ] 插件系统
