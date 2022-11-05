@@ -1,6 +1,6 @@
 # PyFriend Load Helper
 import os,sys,traceback
-global PYFRIEND_FRAME
+import 
 from helper import PyFriendException
 import core,helper 
 # Common variable
@@ -13,9 +13,7 @@ PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
 def getVar(name):
   return sys._getframe().f_back.f_locals[name]
 try:
-  if(__name__=="__main__"):
-    PYFRIEND_FRAME = {}
-    PYFRIEND_FRAME["Init"] = getVar
+  if(__name__=="__main__"):      
     core.systemLoad(PYFRIEND_FRAME)
 except Exception as e:
   errorMsg = traceback.format_exc()
