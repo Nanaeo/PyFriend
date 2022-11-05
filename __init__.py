@@ -15,7 +15,7 @@ def getVar(name):
 try:
   if(__name__=="__main__"):
     PYFRIEND_FRAME["Init"] = getVar
-    core.systemLoad()
+    core.systemLoad(PYFRIEND_FRAME)
 except Exception as e:
   errorMsg = traceback.format_exc()
   helper.PrintConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
