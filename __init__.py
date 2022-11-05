@@ -1,6 +1,5 @@
 # PyFriend Load Helper
-import os,sys,traceback
-import 
+import os,sys,traceback 
 from helper import PyFriendException
 import core,helper 
 # Common variable
@@ -15,6 +14,7 @@ def getVar(name):
 try:
   if(__name__=="__main__"):      
     core.systemLoad(PYFRIEND_FRAME)
+    print(helper.GlobalDict)
 except Exception as e:
   errorMsg = traceback.format_exc()
   helper.PrintConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
