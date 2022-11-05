@@ -60,7 +60,7 @@ def loadPluginPackage():
     if PYFRIEND_CONFIG_DEBUG:
       infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
     PYFRIEND_CLASS_PLUGINS[pluginName] = getattr(ip_module, "Plugin")
-    PYFRIEND_INSTANCE_PLUGINS[pluginName] = PYFRIEND_CLASS_PLUGINS[pluginName](1000)
+#   PYFRIEND_INSTANCE_PLUGINS[pluginName] = PYFRIEND_CLASS_PLUGINS[pluginName](1000)
 if(__name__=="__main__"):
   try:
     systemLoad()
