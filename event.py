@@ -11,7 +11,7 @@ PYFRIEND_CONFIG_DEBUG = True
 PYFRIEND_PATH_ROOT = os.path.abspath(os.path.dirname(__file__))
 PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
 # Reference PYFRIEND_PATH_ROOT https://www.cnblogs.com/liangmingshen/p/12794631.html
-
+# Common variable 
 PYFRIEND_CONFIG_PLUGINS = {}
 PYFRIEND_INFO_PLUGINS = {}
 PYFRIEND_CLASS_PLUGINS = {}
