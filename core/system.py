@@ -13,9 +13,9 @@ def LoadPlugin(PYFRIEND_SYSTEM_TOKEN,pluginsPath,pluginPathName):
           helper.PrintConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Basic Info Loaded .",1)  
         else: 
           helper.PrintConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] .")  
-      pluginConfigFile.close()  
       else: 
         helper.PrintConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , the feature implementation section was not found.",0)  
+      pluginConfigFile.close()  
     else:
       helper.PrintConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , No configuration information was found.",0)
 def systemLoad(PYFRIEND_SYSTEM_TOKEN):
