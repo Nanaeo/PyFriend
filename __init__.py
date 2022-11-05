@@ -1,5 +1,5 @@
 # PyFriend Load Helper
-import * from helper
+from helper import *
 import system from .
 # Common variable
 PYFRIEND_INFO_VERSION = "1.0.0"
