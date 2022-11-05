@@ -35,6 +35,7 @@ def systemLoad():
         pluginConfigFile = open(f"{pluginPath}//{pluginPathName}.plugin.yml","r")   
         pluginConfig = yaml.load(pluginConfigFile.read(),Loader=yaml.FullLoader)
         if os.path.exists(f"{pluginPath}//plugin.py"):
+          print(pluginConfig)
           if "pluginName" in pluginConfig and pluginConfig.pluginName == pluginPathName:
             pluginName = pluginConfig.pluginName
             PYFRIEND_CONFIG_PLUGINS[pluginConfig.pluginName] = pluginConfig  
