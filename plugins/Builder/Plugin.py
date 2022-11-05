@@ -4,5 +4,5 @@ class Plugin:
     self.permissionsCode = permissionsCode
   def RegisterEvent():
     return
-  def BindEvent()
+  def BindEvent():
     return
