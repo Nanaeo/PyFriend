@@ -3,6 +3,7 @@
 
 import os, sys,traceback
 import yaml
+import uuid
 import importlib
 from colorama import init, Fore, Back, Style
 
@@ -11,7 +12,8 @@ PYFRIEND_CONFIG_DEBUG = True
 PYFRIEND_PATH_ROOT = os.path.abspath(os.path.dirname(__file__))
 PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
 # Reference PYFRIEND_PATH_ROOT https://www.cnblogs.com/liangmingshen/p/12794631.html
-# Common variable 
+# Common variable
+PYFRIEND_PLUGINS_AUTHCODE = {}
 PYFRIEND_CONFIG_PLUGINS = {}
 PYFRIEND_INFO_PLUGINS = {}
 PYFRIEND_CLASS_PLUGINS = {}
@@ -60,7 +62,9 @@ def loadPluginPackage():
     if PYFRIEND_CONFIG_DEBUG:
       infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
     PYFRIEND_CLASS_PLUGINS[pluginName] = getattr(ip_module.Plugin, "Plugin")
-    PYFRIEND_INSTANCE_PLUGINS[pluginName] = PYFRIEND_CLASS_PLUGINS[pluginName](1000)
+    authCode = str(uuid.uuid4())
+    PYFRIEND_PLUGINS_AUTHCODE[pluginName] = authCode
+    PYFRIEND_INSTANCE_PLUGINS[pluginName] = PYFRIEND_CLASS_PLUGINS[pluginName](authCode)
 if(__name__=="__main__"):
   try:
     systemLoad()
