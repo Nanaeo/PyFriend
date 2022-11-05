@@ -1,31 +1,41 @@
 import uuid
 # 初始化获取顶级权限
+def us(di,keys,val):
+    length = len(keys)
+    if(length == 0):
+        return val
+    else:
+        key = keys.pop(0)
+        if(key in di.keys()):
+            di[key] = us(di[key],keys,val)
+        else:
+            di[key] = us({},keys,val)
+        return di
 def auth_init():
-  global _global_dict
+  global globalDict
   global rootCode
-  authTable = {}
-  _global_dict = {}
+  authTable,globalDict = {}
   rootCode = str(uuid.uuid4())
   authTable[rootCode] = {"name":"system","auth":1,"range":{}} 
   return rootCode
+
 def auth_regist(name):
    rootCode = str(uuid.uuid4())
-   authTable[rootCode] = {"name":name,"auth":0,"range":{}} 
-def setValue(authCode , key, value):
-  if rootCode in authTable:
-    tempdata = _global_dict
-    if not key[0] in authTable[rootCode]["range"] and authTable[rootCode]["auth"] == 0:
-       return False
-    for temp in key:
-       tempdata = tempdata[temp]
-    return True
-  else:
+   authTable[rootCode] = {"name":name,"auth":0,"range":{name:"3"}} 
+
+def setValue(authCode , keys, value):
+  if not rootCode in authTable:
     return False
-def getValue(authCode,key):
-  if rootCode in authTable:
-  tempdata = _global_dict
-  if not key[0] in authTable[rootCode]["range"] and authTable[rootCode]["auth"] == 0:
+  if not keys[0] in authTable[rootCode]["range"] and authTable[rootCode]["auth"] != 0:
     return False
-  for temp in key:
+  globalDict = us(globalDict,keys,value)
+  return True
+def getValue(authCode,keys):
+  if not rootCode in authTable:
+    return False
+  if not key[0] in authTable[rootCode]["range"] and authTable[rootCode]["auth"] != 0:
+    return False
+  tempdata = globalDict
+  for temp in keys:
      tempdata = tempdata[temp]
   return tempdata
