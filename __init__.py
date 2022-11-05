@@ -11,7 +11,7 @@ PYFRIEND_PATH_ROOT = os.path.abspath(os.path.dirname(__file__))
 PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
 # Reference PYFRIEND_PATH_ROOT https://www.cnblogs.com/liangmingshen/p/12794631.html
 def getVar(name):
-  reurn sys._getframe().f_back.f_locals[name]
+  return sys._getframe().f_back.f_locals[name]
 try:
   if(__name__=="__main__"):
     PYFRIEND_FRAME["Init"] = getVar
