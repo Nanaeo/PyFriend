@@ -1,8 +1,7 @@
 # PyFriend Load Helper
 import os,sys,traceback
-from helper import *
+from . import helper,core
 from helper import PyFriendException 
-from core import system
 # Common variable
 PYFRIEND_INFO_VERSION = "1.0.0"
 PYFRIEND_CONFIG_DEBUG = True
