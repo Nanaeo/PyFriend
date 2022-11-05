@@ -20,7 +20,7 @@ def infoConsole(Type,Location,Msg):
   return
 def systemLoad():  
   pluginsPath = os.listdir( PYFRIEND_PATH_PLUGINS ) 
-  if pluginName in pluginsPath:
+  for pluginName in pluginsPath:
     pluginPath = f"{PYFRIEND_PATH_PLUGINS}//{pluginName}"
     if os.path.isdir(pluginPath):
       if os.path.exists(f"{pluginPath}//{pluginName}.plugin.yml"):
