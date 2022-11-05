@@ -14,7 +14,7 @@ def getVar(name):
 try:
   if(__name__=="__main__"):      
     core.systemLoad()
-    print(helper.GlobalDict)
+    print(helper.GlobalDict.authInit)
 except Exception as e:
   errorMsg = traceback.format_exc()
   helper.PrintConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
