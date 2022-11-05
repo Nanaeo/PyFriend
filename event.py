@@ -59,13 +59,13 @@ def loadPluginPackage():
     ip_module = importlib.import_module(pluginPackage)
     if PYFRIEND_CONFIG_DEBUG:
       infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
-    PYFRIEND_CLASS_PLUGINS[pluginName] = getattr(ip_module, "Plugin")
-    PYFRIEND_INSTANCE_PLUGINS[pluginName] = PYFRIEND_CLASS_PLUGINS[pluginName](1000)
+     PYFRIEND_CLASS_PLUGINS[pluginName] = getattr(ip_module, "Plugin")
+#    PYFRIEND_INSTANCE_PLUGINS[pluginName] = PYFRIEND_CLASS_PLUGINS[pluginName](1000)
 if(__name__=="__main__"):
   try:
     systemLoad()
-    print(PYFRIEND_CONFIG_PLUGINS)
-    print("类型：", type(PYFRIEND_CONFIG_PLUGINS))
+    print(PYFRIEND_CLASS_PLUGINS)
+    print("类型：", type(PYFRIEND_CLASS_PLUGINS))
   except Exception as e:
     errorMsg = traceback.format_exc()
     infoConsole("FATAL","OTHER",f"SYSTEM[CAPTRUE] Specific information :\n {errorMsg}")
