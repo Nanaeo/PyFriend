@@ -1,0 +1,4 @@
+pluginName: GithubApi
+pluginVer: "1.0.0"
+apiVer: 1
+description: "GithubApi is a built-in core plug-in for managing api"
