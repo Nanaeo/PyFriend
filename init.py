@@ -33,7 +33,7 @@ def systemLoad():
             PYFRIEND_CONFIG_PLUGINS[pluginConfig.pluginName] = pluginConfig  
             infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] begins to load .")  
           else: 
-          infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] .")  
+            infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] .")  
         else: 
           infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , the feature implementation section was not found.")  
       else:
