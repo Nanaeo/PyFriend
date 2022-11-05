@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import os, sys
+import os, sys,traceback
 import yaml
 
 PYFRIEND_INFO_VERSION = "1.0.0"
@@ -35,5 +35,5 @@ if(__name__=="__main__"):
     print(PYFRIEND_CONFIG_PLUGINS)
     print("类型：", type(PYFRIEND_CONFIG_PLUGINS))
   except Exception as e:
-    errorMsg = trackback.format_exc()
+    errorMsg = traceback.format_exc()
     infoConsole("ERROR","OTHER",f"Specific information : {errorMsg}")
