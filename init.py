@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import os, sys,traceback
+from colorama import init, Fore, Back, Style
 import yaml
 
 PYFRIEND_INFO_VERSION = "1.0.0"
