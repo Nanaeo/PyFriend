@@ -18,6 +18,7 @@ PYFRIEND_EVENT_REGISTER = {}
 def infoConsole(Type,Location,Msg):
   print('[{0}][{1}] {2}'.format(Type,Location,Msg))
   return
+# Yaml will be fully loaded in Full unsafe mode
 def systemLoad():  
   pluginsPath = os.listdir( PYFRIEND_PATH_PLUGINS ) 
   for pluginName in pluginsPath:
@@ -25,7 +26,7 @@ def systemLoad():
     if os.path.isdir(pluginPath):
       if os.path.exists(f"{pluginPath}//{pluginName}.plugin.yml"):
         pluginConfigFile = open(f"{pluginPath}//{pluginName}.plugin.yml","r")   
-        pluginConfig = yaml.load(pluginConfigFile.read())
+        pluginConfig = yaml.load(pluginConfigFile.read(),Loader=yaml.FullLoader)
         PYFRIEND_CONFIG_PLUGINS[pluginName] = pluginConfig  
       else:
         infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Unable to load properly.")
