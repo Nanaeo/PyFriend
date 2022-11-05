@@ -38,7 +38,7 @@ def getValue(authCode,keys):
   if not authCode in authTable:
     print("flag 2")
     return False
-  if not keys[0] in authTable[authCode]["range"] and authTable[authCode]["auth"] != 0:
+  if not keys[0] in authTable[authCode]["range"] and authTable[authCode]["auth"] == 1:
     print("flag 12")
     return False
   tempdata = globalDict
