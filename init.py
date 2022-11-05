@@ -36,4 +36,4 @@ if(__name__=="__main__"):
     print("类型：", type(PYFRIEND_CONFIG_PLUGINS))
   except Exception as e:
     errorMsg = traceback.format_exc()
-    infoConsole("ERROR","OTHER",f"PLUGIN[SYSTEM] Specific information :/n {errorMsg}")
+    infoConsole("ERROR","OTHER",f"PLUGIN[SYSTEM] Specific information :\n {errorMsg}")
