@@ -52,7 +52,8 @@ def loadPluginInfo():
         infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , No configuration information was found.")
 def loadPluginPackage():
   for pluginIndex in PYFRIEND_CONFIG_PLUGINS:
-    pluginPackage = "plugins." + PYFRIEND_CONFIG_PLUGINS[pluginIndex]["pluginName"]
+    pluginName = PYFRIEND_CONFIG_PLUGINS[pluginIndex]["pluginName"]
+    pluginPackage = "plugins." + pluginName
     ip_module = importlib.import_module(pluginPackage)
     if PYFRIEND_CONFIG_DEBUG:
       infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
