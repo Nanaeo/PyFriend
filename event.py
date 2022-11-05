@@ -14,7 +14,9 @@ PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
 
 PYFRIEND_CONFIG_PLUGINS = {}
 PYFRIEND_INFO_PLUGINS = {}
+PYFRIEND_CLASS_PLUGINS = {}
 PYFRIEND_EVENT_BIND = {}
+PYFRIEND_INSTANCE_PLUGINS ={}
 PYFRIEND_EVENT_REGISTER = {}
 # Inital Plugins Table
 def infoConsole(Type,Location,Msg,Color = 0):
@@ -57,6 +59,8 @@ def loadPluginPackage():
     ip_module = importlib.import_module(pluginPackage)
     if PYFRIEND_CONFIG_DEBUG:
       infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
+    PYFRIEND_CLASS_PLUGINS[pluginName] = getattr(ip_module, "Plugin")
+    PYFRIEND_INSTANCE_PLUGINS[pluginName] = PYFRIEND_CLASS_PLUGINS[pluginName](1000)
 if(__name__=="__main__"):
   try:
     systemLoad()
