@@ -1,5 +1,5 @@
 import uuid
-# 初始化获取顶级权限
+# 初始化获取顶级权限 不完善
 def us(di,keys,val):
     length = len(keys)
     if(length == 0):
@@ -11,6 +11,7 @@ def us(di,keys,val):
         else:
             di[key] = us({},keys,val)
         return di
+
 def auth_init():
   global globalDict
   global rootCode
@@ -30,6 +31,7 @@ def setValue(authCode , keys, value):
     return False
   globalDict = us(globalDict,keys,value)
   return True
+
 def getValue(authCode,keys):
   if not rootCode in authTable:
     return False
