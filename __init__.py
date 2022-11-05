@@ -8,9 +8,11 @@ PYFRIEND_CONFIG_DEBUG = True
 PYFRIEND_PATH_ROOT = os.path.abspath(os.path.dirname(__file__))
 PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
 # Reference PYFRIEND_PATH_ROOT https://www.cnblogs.com/liangmingshen/p/12794631.html
-if(__name__=="__main__"):
-  try:
+try:
+  if(__name__=="__main__"):
     systemLoad()
-  except Exception as e:
-    errorMsg = traceback.format_exc()   
-    infoConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
+except PyFriendException as e:
+  errorMsg = traceback.format_exc()
+  infoConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
+except Exception as e:
+  infoConsole(e.Type,e.Location,e.Msg,e.Color)
