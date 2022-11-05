@@ -1,4 +1,5 @@
 import time,sys,os
+from colorama import init, Fore, Back, Style
 def PrintConsole(Type,Location,Msg,Color = 0):
   nowtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
   output = f"[{Type}]" + Fore.RESET + f"[{nowtime}]{Location} : {Msg}"
