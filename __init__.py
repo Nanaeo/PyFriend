@@ -14,6 +14,7 @@ def getVar(name):
   return sys._getframe().f_back.f_locals[name]
 try:
   if(__name__=="__main__"):
+    PYFRIEND_FRAME = {}
     PYFRIEND_FRAME["Init"] = getVar
     core.systemLoad(PYFRIEND_FRAME)
 except Exception as e:
