@@ -1,1 +1,1 @@
-from . import system
+from core import *
