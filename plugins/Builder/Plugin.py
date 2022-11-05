@@ -1,8 +1,8 @@
-print("Builder Loaded! - Default Message")
 class Plugin(object):
   def __init__(self, permissionsCode):
     self.permissionsCode = permissionsCode
-  def RegisterEvent():
+    print(f"Builder Loaded! - plugin permissionsCode:{permissionsCode}")
+  def RegisterEvent():   
     return
   def BindEvent():
     return
