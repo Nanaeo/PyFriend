@@ -22,11 +22,11 @@ def authInit():
   return rootCode
 
 def authRegist(name):
-   rootCode = str(uuid.uuid4())
-   authTable[rootCode] = {"name":name,"auth":0,"range":{name:"3"}} 
+   authCode = str(uuid.uuid4())
+   authTable[authCode] = {"name":name,"auth":0,"range":{name:"3"}} 
 
 def setValue(authCode , keys, value):
-  if not rootCode in authTable:
+  if not authCode in authTable:
     return False
   if not keys[0] in authTable[rootCode]["range"] and authTable[rootCode]["auth"] != 0:
     return False
@@ -34,7 +34,7 @@ def setValue(authCode , keys, value):
   return True
 
 def getValue(authCode,keys):
-  if not rootCode in authTable:
+  if not authCode in authTable:
     return False
   if not key[0] in authTable[rootCode]["range"] and authTable[rootCode]["auth"] != 0:
     return False
