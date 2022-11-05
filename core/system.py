@@ -27,6 +27,6 @@ def systemLoad(PYFRIEND_SYSTEM_TOKEN):
   for pluginPathName in pluginsPath:
 # 转入Plugin类加载所有插件 然后公布绑定事件 分析触发事件运行流程
       LoadPlugin(PYFRIEND_SYSTEM_TOKEN,pluginsPath,pluginPathName)
-  t = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["Builer","CONFIG"])
+  t = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["Builder","CONFIG"])
   print(t)
   return
