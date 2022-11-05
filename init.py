@@ -2,8 +2,9 @@
 # -*- coding: UTF-8 -*-
 
 import os, sys,traceback
-from colorama import init, Fore, Back, Style
 import yaml
+import importlib
+from colorama import init, Fore, Back, Style
 
 PYFRIEND_INFO_VERSION = "1.0.0"
 PYFRIEND_CONFIG_DEBUG = True
@@ -28,7 +29,7 @@ def infoConsole(Type,Location,Msg,Color = 0):
 # Yaml will be fully loaded in Full unsafe mode
 def systemLoad():
   loadPluginInfo()
-
+  loadPluginPackage()
 def loadPluginInfo():  
   pluginsPath = os.listdir( PYFRIEND_PATH_PLUGINS ) 
   for pluginPathName in pluginsPath:
@@ -49,6 +50,10 @@ def loadPluginInfo():
           infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , the feature implementation section was not found.")  
       else:
         infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , No configuration information was found.")
+def loadPluginPackage():
+  for pluginIndex in PYFRIEND_CONFIG_PLUGINS:
+    pluginPackage = "plugins." + PYFRIEND_CONFIG_PLUGINS[pluginIndex]["pluginName"]
+    ip_module = importlib.import_module(pluginPackage)
 if(__name__=="__main__"):
   try:
     systemLoad()
