@@ -12,7 +12,7 @@ def us(di,keys,val):
             di[key] = us({},keys,val)
         return di
 
-def auth_init():
+def authInit():
   global globalDict
   global rootCode
   authTable,globalDict = {}
@@ -20,7 +20,7 @@ def auth_init():
   authTable[rootCode] = {"name":"system","auth":1,"range":{}} 
   return rootCode
 
-def auth_regist(name):
+def authRegist(name):
    rootCode = str(uuid.uuid4())
    authTable[rootCode] = {"name":name,"auth":0,"range":{name:"3"}} 
 
