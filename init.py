@@ -53,7 +53,7 @@ def loadPluginInfo():
 def loadPluginPackage():
   for pluginIndex in PYFRIEND_CONFIG_PLUGINS:
     pluginName = PYFRIEND_CONFIG_PLUGINS[pluginIndex]["pluginName"]
-    pluginPackage = "plugins." + pluginName + ".*"
+    pluginPackage = "plugins." + pluginName
     ip_module = importlib.import_module(pluginPackage)
     if PYFRIEND_CONFIG_DEBUG:
       infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
