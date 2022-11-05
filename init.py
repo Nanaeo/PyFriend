@@ -34,6 +34,6 @@ if(__name__=="__main__"):
     systemLoad()
     print(PYFRIEND_CONFIG_PLUGINS)
     print("类型：", type(PYFRIEND_CONFIG_PLUGINS))
-  expect Exception as e:
+  except Exception as e:
     errorMsg = trackback.format_exc()
     infoConsole("ERROR","OTHER",f"Specific information : {errorMsg}")
