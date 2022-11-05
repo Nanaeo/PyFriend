@@ -1,5 +1,6 @@
 # PyFriend Load Helper
 import os,sys,traceback
+from helper import *
 from helper import PyFriendException 
 from core import system
 # Common variable
@@ -15,6 +16,6 @@ try:
 #    systemLoad()
 except Exception as e:
   errorMsg = traceback.format_exc()
-  helper.infoConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
+  LogConsole.infoConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
 except PyFriendException as e:
-  helper.infoConsole(e.Type,e.Location,e.Msg,e.Color)
+  LogConsole.infoConsole(e.Type,e.Location,e.Msg,e.Color)
