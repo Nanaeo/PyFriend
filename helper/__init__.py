@@ -1,4 +1,4 @@
-# from PyFriendException import *
-# from PluginBase import *
-# from LogConsole import *
-from helper import *
+from .PyFriendException import PyFriendException
+from .PluginBase import PluginBase
+from .LogConsole import PrintConsole
+
