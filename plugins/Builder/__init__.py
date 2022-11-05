@@ -1,1 +1,1 @@
-import .Plugin
+from . import Plugin 
