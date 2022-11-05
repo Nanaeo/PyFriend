@@ -26,7 +26,10 @@ def infoConsole(Type,Location,Msg,Color = 0):
     print(Fore.YELLOW + output)
   return
 # Yaml will be fully loaded in Full unsafe mode
-def systemLoad():  
+def systemLoad():
+  loadPluginInfo()
+
+def loadPluginInfo():  
   pluginsPath = os.listdir( PYFRIEND_PATH_PLUGINS ) 
   for pluginPathName in pluginsPath:
     pluginPath = f"{PYFRIEND_PATH_PLUGINS}//{pluginPathName}"
@@ -34,12 +37,12 @@ def systemLoad():
       if os.path.exists(f"{pluginPath}//{pluginPathName}.plugin.yml"):
         pluginConfigFile = open(f"{pluginPath}//{pluginPathName}.plugin.yml","r")   
         pluginConfig = yaml.load(pluginConfigFile.read(),Loader=yaml.FullLoader)
-        if os.path.exists(f"{pluginPath}//Plugin.py"):
-          print(pluginConfig)
+        if os.path.exists(f"{pluginPath}//Plugin.py"):        
           if "pluginName" in pluginConfig and pluginConfig["pluginName"] == pluginPathName:
             pluginName = pluginConfig["pluginName"]
-            PYFRIEND_CONFIG_PLUGINS[pluginConfig["pluginName"]] = pluginConfig  
-            infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] begins to load .",1)  
+            PYFRIEND_CONFIG_PLUGINS[pluginName] = pluginConfig  
+            PYFRIEND_CONFIG_PLUGINS[pluginName]["EntryFile"] = f"{pluginPath}//Plugin.py"
+            infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Basic Info Loaded .",1)  
           else: 
             infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] .")  
         else: 
