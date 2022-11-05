@@ -30,7 +30,7 @@ def setValue(authCode , keys, value):
     return False
   if not keys[0] in authTable[authCode]["range"] and authTable[authCode]["auth"] == 0:
     return False
-  globalDict = us(globalDict,keys,value)
+  print(us(globalDict,keys,value))
   return True
 
 def getValue(authCode,keys):
