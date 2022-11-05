@@ -36,9 +36,9 @@ def systemLoad():
         pluginConfig = yaml.load(pluginConfigFile.read(),Loader=yaml.FullLoader)
         if os.path.exists(f"{pluginPath}//Plugin.py"):
           print(pluginConfig)
-          if "pluginName" in pluginConfig and pluginConfig.pluginName == pluginPathName:
+          if "pluginName" in pluginConfig and pluginConfig["pluginName"] == pluginPathName:
             pluginName = pluginConfig.pluginName
-            PYFRIEND_CONFIG_PLUGINS[pluginConfig.pluginName] = pluginConfig  
+            PYFRIEND_CONFIG_PLUGINS[pluginConfig["pluginName"]] = pluginConfig  
             infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] begins to load .")  
           else: 
             infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] .",1)  
