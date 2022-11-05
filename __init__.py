@@ -15,9 +15,12 @@ try:
     PYFRIEND_SYSTEM_TOKEN = helper.GlobalDict.authInit()
     helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","VERSION"],"1.0.0")
     helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","DEBUG"],True)
+    helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","PATH_ROOT"],os.path.abspath(os.path.dirname(__file__)))
+    helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","PATH_PLUGINS"],os.path.abspath(os.path.dirname(__file__)) + "//plugins")
     core.systemLoad(PYFRIEND_SYSTEM_TOKEN)
 except Exception as e:
   errorMsg = traceback.format_exc()
   helper.PrintConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
 except PyFriendException as e:
   helper.PrintConsole(e.Type,e.Location,e.Msg,e.Color)
+
