@@ -15,8 +15,14 @@ PYFRIEND_INFO_PLUGINS = {}
 PYFRIEND_EVENT_BIND = {}
 PYFRIEND_EVENT_REGISTER = {}
 # Inital Plugins Table
-def infoConsole(Type,Location,Msg):
-  print('[{0}][{1}] {2}'.format(Type,Location,Msg))
+def infoConsole(Type,Location,Msg,color = 0):
+  output = f"[{Type}]" + Fore.RESET + f"[{Location}] {Msg}"
+  if  color  == 0:
+    print(Fore.RED + output)
+  elif color == 1:
+    print(Fore.GREEN + output)
+  else:
+    print(Fore.YELLOW + output)
   return
 # Yaml will be fully loaded in Full unsafe mode
 def systemLoad():  
@@ -33,7 +39,7 @@ def systemLoad():
             PYFRIEND_CONFIG_PLUGINS[pluginConfig.pluginName] = pluginConfig  
             infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] begins to load .")  
           else: 
-            infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] .")  
+            infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] .",1)  
         else: 
           infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , the feature implementation section was not found.")  
       else:
