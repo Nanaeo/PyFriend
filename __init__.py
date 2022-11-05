@@ -13,7 +13,7 @@ def getVar(name):
   return sys._getframe().f_back.f_locals[name]
 try:
   if(__name__=="__main__"):      
-    core.systemLoad(PYFRIEND_FRAME)
+    core.systemLoad()
     print(helper.GlobalDict)
 except Exception as e:
   errorMsg = traceback.format_exc()
