@@ -34,7 +34,7 @@ def systemLoad():
       if os.path.exists(f"{pluginPath}//{pluginPathName}.plugin.yml"):
         pluginConfigFile = open(f"{pluginPath}//{pluginPathName}.plugin.yml","r")   
         pluginConfig = yaml.load(pluginConfigFile.read(),Loader=yaml.FullLoader)
-        if os.path.exists(f"{pluginPath}//plugin.py"):
+        if os.path.exists(f"{pluginPath}//Plugin.py"):
           print(pluginConfig)
           if "pluginName" in pluginConfig and pluginConfig.pluginName == pluginPathName:
             pluginName = pluginConfig.pluginName
