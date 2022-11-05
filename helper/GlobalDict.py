@@ -8,9 +8,9 @@ def auth_init():
   rootCode = str(uuid.uuid4())
   authTable[rootCode] = {"name":"system","auth":1,"range":{}} 
   return rootCode
-def auth_regist():
+def auth_regist(name):
    rootCode = str(uuid.uuid4())
-   authTable[rootCode] = {"name":"system","auth":0,"range":{}} 
+   authTable[rootCode] = {"name":name,"auth":0,"range":{}} 
 def setValue(authCode , key, value):
   if rootCode in authTable:
     tempdata = _global_dict
