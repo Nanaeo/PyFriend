@@ -26,8 +26,10 @@ def systemLoad():
       if os.path.exists(f"{pluginPath}//{pluginName}.plugin.yml"):
         pluginConfigFile = open(f"{pluginPath}//{pluginName}.plugin.yml","r")   
         pluginConfig = yaml.load(pluginConfigFile.read())
-        PYFRIEND_CONFIG_PLUGINS[pluginName] = pluginConfig
+        PYFRIEND_CONFIG_PLUGINS[pluginName] = pluginConfig  
       else:
         infoConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Unable to load properly.")
 if(__name__=="__main__"):
   systemLoad()
+  print(PYFRIEND_CONFIG_PLUGINS)
+  print("类型：", type(PYFRIEND_CONFIG_PLUGINS))
