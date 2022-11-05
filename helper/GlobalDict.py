@@ -28,7 +28,7 @@ def authRegist(name):
 def setValue(authCode , keys, value):
   if not authCode in authTable:
     return False
-  if not keys[0] in authTable[authCode]["range"] and authTable[authCode]["auth"] != 0:
+  if not keys[0] in authTable[authCode]["range"] and authTable[authCode]["auth"] == 1:
     return False
   globalDict = us(globalDict,keys,value)
   return True
