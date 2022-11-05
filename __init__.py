@@ -14,6 +14,6 @@ try:
     systemLoad()
 except Exception as e:
   errorMsg = traceback.format_exc()
-  LogConsole.infoConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
+  LogConsole.PrintConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
 except PyFriendException as e:
-  LogConsole.infoConsole(e.Type,e.Location,e.Msg,e.Color)
+  LogConsole.PrintConsole(e.Type,e.Location,e.Msg,e.Color)
