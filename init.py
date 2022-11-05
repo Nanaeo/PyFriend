@@ -37,7 +37,7 @@ def systemLoad():
         if os.path.exists(f"{pluginPath}//Plugin.py"):
           print(pluginConfig)
           if "pluginName" in pluginConfig and pluginConfig["pluginName"] == pluginPathName:
-            pluginName = pluginConfig.pluginName
+            pluginName = pluginConfig["pluginName"]
             PYFRIEND_CONFIG_PLUGINS[pluginConfig["pluginName"]] = pluginConfig  
             infoConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] begins to load .")  
           else: 
