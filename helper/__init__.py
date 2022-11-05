@@ -1,1 +1,1 @@
-import * from .
+from . import * 
