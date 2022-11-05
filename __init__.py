@@ -11,9 +11,9 @@ PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
 # Reference PYFRIEND_PATH_ROOT https://www.cnblogs.com/liangmingshen/p/12794631.html
 try:
   if(__name__=="__main__"):
-    systemLoad()
+    core.systemLoad()
 except Exception as e:
   errorMsg = traceback.format_exc()
-  LogConsole.infoConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
+  helper.infoConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
 except PyFriendException as e:
-  LogConsole.infoConsole(e.Type,e.Location,e.Msg,e.Color)
+  helper.infoConsole(e.Type,e.Location,e.Msg,e.Color)
