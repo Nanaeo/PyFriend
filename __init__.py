@@ -3,8 +3,7 @@ import os,sys,traceback
 from helper import PyFriendException
 import core,helper 
 # Common variable
-PYFRIEND_INFO_VERSION = "1.0.0"
-PYFRIEND_CONFIG_DEBUG = True
+# None
 # Machine generated
 PYFRIEND_PATH_ROOT = os.path.abspath(os.path.dirname(__file__))
 PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
@@ -13,10 +12,10 @@ def getVar(name):
   return sys._getframe().f_back.f_locals[name]
 try:
   if(__name__=="__main__"):      
-    core.systemLoad()
     PYFRIEND_SYSTEM_TOKEN = helper.GlobalDict.authInit()
-    helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","VERSION"],PYFRIEND_INFO_VERSION)
-    print(helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","VERSION"]))
+    helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","VERSION"],"1.0.0")
+    helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","DEBUG"],True)
+    core.systemLoad(PYFRIEND_SYSTEM_TOKEN)
 except Exception as e:
   errorMsg = traceback.format_exc()
   helper.PrintConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
