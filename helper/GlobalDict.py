@@ -23,23 +23,28 @@ def authInit():
 
 def authRegist(name):
    authCode = str(uuid.uuid4())
-   authTable[authCode] = {"name":name,"auth":0,"range":{name:"3"}} 
+   authTable[authCode] = {"name":name,"auth":0,"range":{name:"1"}} 
+
+def authRange(authCode,key):
+  if not authCode in authTable:
+    return False
+  if authTable[authCode]["auth"] == 0:
+    return False
+  authTable[authCode]["range"][key] = 1
 
 def setValue(authCode , keys, value):
   if not authCode in authTable:
     return False
   if not keys[0] in authTable[authCode]["range"] and authTable[authCode]["auth"] == 0:
     return False
-  print(us(globalDict,keys,value))
+  us(globalDict,keys,value)
   return True
 
 def getValue(authCode,keys):
   print(authTable)
   if not authCode in authTable:
-    print("flag 2")
     return False
   if not keys[0] in authTable[authCode]["range"] and authTable[authCode]["auth"] == 0:
-    print("flag 12")
     return False
   tempdata = globalDict
   for temp in keys:
