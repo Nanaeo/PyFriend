@@ -1,4 +1,4 @@
-import helper,sys
+import helper,sys,os
 def LoadPlugin(PYFRIEND_SYSTEM_TOKEN,pluginsPath,pluginPathName):
   PYFRIEND_PATH_PLUGINS = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","PATH_PLUGINS"])
   pluginPath = f"{PYFRIEND_PATH_PLUGINS}//{pluginPathName}"
