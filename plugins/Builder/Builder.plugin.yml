@@ -1,3 +1,4 @@
-plugin:
-  name: "Builder"
-  version: "1.0.0"
+pluginName: Builder
+pluginVer: "1.0.0"
+apiVer: 1
+description: "Builder is a built-in core plug-in"
