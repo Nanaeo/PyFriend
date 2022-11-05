@@ -1,0 +1,4 @@
+pluginName: Handler
+pluginVer: "1.0.0"
+apiVer: 1
+description: "Handler is a built-in core plug-in"
