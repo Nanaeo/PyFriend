@@ -1,5 +1,6 @@
 # PyFriend Load Helper
 import os,sys,traceback
+from helper import PyFriendException
 from helper import *
 from core import system
 # Common variable
