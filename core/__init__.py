@@ -1,1 +1,1 @@
-from core import *
+from .system import systemLoad
