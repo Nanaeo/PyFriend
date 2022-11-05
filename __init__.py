@@ -1,7 +1,6 @@
 # PyFriend Load Helper
 import os,sys,traceback
-from core import *
-from helper import * 
+import core,helper 
 # Common variable
 PYFRIEND_INFO_VERSION = "1.0.0"
 PYFRIEND_CONFIG_DEBUG = True
@@ -11,9 +10,9 @@ PYFRIEND_PATH_PLUGINS = PYFRIEND_PATH_ROOT + "//plugins"
 # Reference PYFRIEND_PATH_ROOT https://www.cnblogs.com/liangmingshen/p/12794631.html
 try:
   if(__name__=="__main__"):
-    system.systemLoad()
+    core.systemLoad()
 except Exception as e:
   errorMsg = traceback.format_exc()
-  LogConsole.PrintConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
+  helper.PrintConsole("FATAL","SYSTEM",f"Specific information :\n {errorMsg}")
 except PyFriendException as e:
-  LogConsole.PrintConsole(e.Type,e.Location,e.Msg,e.Color)
+  helper.PrintConsole(e.Type,e.Location,e.Msg,e.Color)
