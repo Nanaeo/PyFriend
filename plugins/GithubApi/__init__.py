@@ -1,1 +1,1 @@
-__all__ = ["Plugin"]
+from . import Plugin
