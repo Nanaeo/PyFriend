@@ -1,4 +1,5 @@
 # PyFriend Load Helper
+import os,sys
 from helper import *
 from core import system
 # Common variable
