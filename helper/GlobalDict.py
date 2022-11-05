@@ -8,10 +8,13 @@ def _init():
   rootCode = str(uuid.uuid4())
   authTable[rootCode] = {"name":"system","auth":1,"range":{}} 
   return rootCode
+def regist()
+   rootCode = str(uuid.uuid4())
+   authTable[rootCode] = {"name":"system","auth":0,"range":{}} 
 def set_value(authCode , key, value):
   if rootCode in authTable:
     tempdata = _global_dict
-    if not key[0] in authTable[rootCode]["range"]:
+    if not key[0] in authTable[rootCode]["range"] and authTable[rootCode]["auth"] == 0:
        return False
     for temp in key:
        tempdata = tempdata[temp]
@@ -21,7 +24,7 @@ def set_value(authCode , key, value):
 def get_value(authCode,key):
   if rootCode in authTable:
   tempdata = _global_dict
-  if not key[0] in authTable[rootCode]["range"]:
+  if not key[0] in authTable[rootCode]["range"] and authTable[rootCode]["auth"] == 0:
     return False
   for temp in key:
      tempdata = tempdata[temp]
