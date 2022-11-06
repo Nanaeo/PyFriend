@@ -1,4 +1,4 @@
-import helper,sys,os
+import helper,sys,os,importlib
 def loadPluginPackage(PYFRIEND_SYSTEM_TOKEN,pluginName):
     pluginPackage = "plugins." + pluginName
     authCode = helper.GlobalDict.authRegist(pluginName)
