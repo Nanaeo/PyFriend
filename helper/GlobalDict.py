@@ -24,7 +24,7 @@ def authInit():
 def authRegist(name):
    authCode = str(uuid.uuid4())
    authTable[authCode] = {"name":name,"auth":0,"range":{name:"1"}} 
-
+   return authCode
 def authRange(authCode,key):
   if not authCode in authTable:
     return False
