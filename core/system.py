@@ -1,4 +1,14 @@
 import helper,sys,os
+def loadPluginPackage(PYFRIEND_SYSTEM_TOKEN,pluginName):
+    pluginPackage = "plugins." + pluginName
+    authCode = helper.globalDict.authRegist(pluginName)
+    authRange(authCode,pluginName)
+    ip_module = importlib.import_module(pluginPackage)
+    if PYFRIEND_PATH_PLUGINS = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","DEBUG"]):
+      helper.PrintConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
+    pluginClass = getattr(ip_module.Plugin, "Plugin")
+    pluginInstance = pluginClass(authCode)   
+    helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,[pluginName,"pluginInstance"],pluginInstance)   
 def systemLoad(PYFRIEND_SYSTEM_TOKEN):
   helper.PrintConsole("Welcome","Hello User","The system starts to load and run . ",1)
   PYFRIEND_PATH_PLUGINS = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","PATH_PLUGINS"])
