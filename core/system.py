@@ -2,7 +2,7 @@ import helper,sys,os
 def loadPluginPackage(PYFRIEND_SYSTEM_TOKEN,pluginName):
     pluginPackage = "plugins." + pluginName
     authCode = helper.GlobalDict.authRegist(pluginName)
-    authRange(authCode,pluginName)
+    helper.GlobalDict.authRange(authCode,pluginName)
     ip_module = importlib.import_module(pluginPackage)
     if helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","DEBUG"]):
       helper.PrintConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
