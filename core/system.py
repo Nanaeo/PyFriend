@@ -4,7 +4,7 @@ def loadPluginPackage(PYFRIEND_SYSTEM_TOKEN,pluginName):
     authCode = helper.globalDict.authRegist(pluginName)
     authRange(authCode,pluginName)
     ip_module = importlib.import_module(pluginPackage)
-    if PYFRIEND_PATH_PLUGINS = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","DEBUG"]):
+    if helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","DEBUG"]):
       helper.PrintConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Package Loaded .",1)
     pluginClass = getattr(ip_module.Plugin, "Plugin")
     pluginInstance = pluginClass(authCode)   
