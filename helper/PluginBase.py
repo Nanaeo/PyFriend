@@ -1,6 +1,6 @@
 import os, sys
-import yaml
-import importlib
+import yaml,importlib
+import helper
 class PluginBase(object):
   def LoadPlugin(PYFRIEND_SYSTEM_TOKEN,pluginsPath,pluginPathName):
     PYFRIEND_PATH_PLUGINS = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","PATH_PLUGINS"])
