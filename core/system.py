@@ -1,23 +1,4 @@
-import helper,sys,os,yaml
-def LoadPlugin(PYFRIEND_SYSTEM_TOKEN,pluginsPath,pluginPathName):
-  PYFRIEND_PATH_PLUGINS = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","PATH_PLUGINS"])
-  pluginPath = f"{PYFRIEND_PATH_PLUGINS}//{pluginPathName}"
-  if os.path.isdir(pluginPath):
-    if os.path.exists(f"{pluginPath}//{pluginPathName}.plugin.yml"):
-      pluginConfigFile = open(f"{pluginPath}//{pluginPathName}.plugin.yml","r") 
-      pluginConfig = yaml.load(pluginConfigFile.read(),Loader=yaml.FullLoader)
-      if os.path.exists(f"{pluginPath}//Plugin.py"):        
-        if "pluginName" in pluginConfig :
-          pluginName = pluginConfig["pluginName"]
-          helper.GlobalDict.setValue(PYFRIEND_SYSTEM_TOKEN,[pluginPathName,"CONFIG"],pluginConfig)
-          helper.PrintConsole("INFO","PLUGIN_LOAD",f"PLUGIN[{pluginName}] Basic Info Loaded .",1)  
-        else: 
-          helper.PrintConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] .")  
-      else: 
-        helper.PrintConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , the feature implementation section was not found.",0)  
-      pluginConfigFile.close()  
-    else:
-      helper.PrintConsole("ERROR","PLUGIN_LOAD",f"PLUGIN[{pluginPathName}] Unable to load properly , No configuration information was found.",0)
+import helper,sys,os
 def systemLoad(PYFRIEND_SYSTEM_TOKEN):
   helper.PrintConsole("Welcome","Hello User","The system starts to load and run . ",1)
   PYFRIEND_PATH_PLUGINS = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["SYSTEM","PATH_PLUGINS"])
@@ -26,7 +7,7 @@ def systemLoad(PYFRIEND_SYSTEM_TOKEN):
   pluginsPath = os.listdir( PYFRIEND_PATH_PLUGINS ) 
   for pluginPathName in pluginsPath:
 # 转入Plugin类加载所有插件 然后公布绑定事件 分析触发事件运行流程
-      LoadPlugin(PYFRIEND_SYSTEM_TOKEN,pluginsPath,pluginPathName)
+      helper.PluginBase.LoadPlugin(PYFRIEND_SYSTEM_TOKEN,pluginsPath,pluginPathName)
   t = helper.GlobalDict.getValue(PYFRIEND_SYSTEM_TOKEN,["Builder","CONFIG"])
   print(t)
   return
